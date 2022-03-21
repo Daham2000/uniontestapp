@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">union assurance</string>
+    <string name="insurance_cover">Insurance cover</string>
+    <string name="union_assurance">UNION ASSURANCE</string>
+    <string name="insurance_cover_from_union_assurance">Insurance cover from union assurance</string>
+    <string name="search">Search</string>
+    <string name="completed_rewards">Completed Rewards</string>
+</resources>

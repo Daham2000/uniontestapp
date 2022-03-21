@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/card_compo"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="5dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="15dp"
+        android:shape="ring"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:elevation="5dp"
+        app:cardElevation="5dp"
+        android:id="@+id/card_compo_view"
+        android:layout_height="230dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:backgroundTint="@color/black"
+            android:layout_height="match_parent">
+
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:layout_width="80dp"-->
+<!--                    android:backgroundTint="@color/green"-->
+<!--                    app:cardCornerRadius="30dp"-->
+<!--                    android:shape="ring"-->
+<!--                    android:layout_marginTop="1dp"-->
+<!--                    android:layout_marginEnd="1dp"-->
+<!--                    android:id="@+id/completedCard"-->
+<!--                    android:layout_height="22dp">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="70dp"-->
+<!--                        android:layout_height="22dp"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:layout_marginTop="3dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:textSize="10sp"-->
+<!--                        android:text="COMPLETED"-->
+<!--                        android:id="@+id/completed"/>-->
+
+<!--                </androidx.cardview.widget.CardView>-->
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/image"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:backgroundTint="@color/white"
+                android:padding="12sp"
+                android:layout_height="120dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="17sp"
+                    android:id="@+id/textCart"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:id="@+id/textCartDescription"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/red"
+                    android:id="@+id/textCartExpire"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
