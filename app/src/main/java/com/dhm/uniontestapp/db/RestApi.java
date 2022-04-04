@@ -1,6 +1,5 @@
-package com.dhm.uniontestapp;
+package com.dhm.uniontestapp.db;
 
-import android.content.Context;
 import android.util.Log;
 
 import okhttp3.OkHttpClient;
@@ -9,8 +8,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RestApi {
-
-    static final String url = "https://621f4674311a70591407189f.mockapi.io/rewards";
 
     private static final String TAG = "RestApi";
 
@@ -29,11 +26,10 @@ public class RestApi {
         return retrofit;
     }
 
-
-    public static RewardModel sendRequestGet(){
-        RewardModel userService = null;
+    public static RewardRoute sendRequestGet(){
+        RewardRoute userService = null;
         try{
-            userService = getRetrofit().create(RewardModel.class);
+            userService = getRetrofit().create(RewardRoute.class);
         }catch (Exception e){
             Log.e(TAG, "sendRequestGet: ", e);
         }

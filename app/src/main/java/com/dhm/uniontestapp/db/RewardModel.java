@@ -1,6 +1,6 @@
-package com.dhm.uniontestapp;
+package com.dhm.uniontestapp.db;
 
-public class Reward {
+public class RewardModel {
     private String title;
     private String sub_title;
     private boolean is_completed;
@@ -8,7 +8,7 @@ public class Reward {
     private String image;
     private String id;
 
-    public Reward(String title, String sub_title, boolean is_completed, String expire_date, String image, String id) {
+    public RewardModel(String title, String sub_title, boolean is_completed, String expire_date, String image, String id) {
         this.title = title;
         this.sub_title = sub_title.substring(5);
         this.is_completed = is_completed;

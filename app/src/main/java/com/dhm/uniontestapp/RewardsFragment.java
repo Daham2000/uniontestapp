@@ -14,6 +14,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dhm.uniontestapp.db.RestApi;
+import com.dhm.uniontestapp.db.RewardModel;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ViewListener;
 
@@ -25,7 +27,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 public class RewardsFragment extends Fragment {
 
-    private static final String TAG = "Rewards Fragment";
+    private static final String TAG = "RewardsFragment";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,12 +57,12 @@ public class RewardsFragment extends Fragment {
         btnDisplay = rootView.findViewById(R.id.btnAll);
         btnGoal = rootView.findViewById(R.id.btnGoal);
         btnPartner = rootView.findViewById(R.id.btnPartner);
-        View slideComponent = (View) inflatedView.findViewById(R.id.slideCompo);
-        View slideComponent2 = (View) inflatedView.findViewById(R.id.slideCompo);
-        View slideComponent3 = (View) inflatedView.findViewById(R.id.slideCompo);
-        View slideComponent4 = (View) inflatedView.findViewById(R.id.slideCompo);
-        View slideComponent5 = (View) inflatedView.findViewById(R.id.slideCompo);
-        View slideComponent6 = (View) inflatedView.findViewById(R.id.slideCompo);
+        View slideComponent =  inflatedView.findViewById(R.id.slideCompo);
+        View slideComponent2 =  inflatedView.findViewById(R.id.slideCompo);
+        View slideComponent3 =  inflatedView.findViewById(R.id.slideCompo);
+        View slideComponent4 = inflatedView.findViewById(R.id.slideCompo);
+        View slideComponent5 =  inflatedView.findViewById(R.id.slideCompo);
+        View slideComponent6 =  inflatedView.findViewById(R.id.slideCompo);
         viewsList.add(slideComponent);
         viewsList.add(slideComponent2);
         viewsList.add(slideComponent3);
@@ -71,16 +73,16 @@ public class RewardsFragment extends Fragment {
         carouselView.pauseCarousel();
         carouselView.setViewListener(viewListener);
         addListenerOnButton();
-        Call<List<Reward>> allUsers = restApi.sendRequestGet().getAllUsers();
+        Call<List<RewardModel>> allUsers = RestApi.sendRequestGet().getAllUsers();
 
-        allUsers.enqueue(new Callback<List<Reward>>() {
+        allUsers.enqueue(new Callback<List<RewardModel>>() {
             @Override
-            public void onResponse(Call<List<Reward>> call, Response<List<Reward>> response) {
+            public void onResponse(Call<List<RewardModel>> call, Response<List<RewardModel>> response) {
 
                 if(response.isSuccessful()){
-                    List<Reward> userResponses = response.body();
+                    List<RewardModel> userResponses = response.body();
                     Log.e(TAG, "onResponse: "+userResponses.size());
-                    for (Reward r : userResponses)
+                    for (RewardModel r : userResponses)
                     {
                         mImageUrls.add(r.getImage());
                         mAddress.add(r.getTitle());
@@ -113,7 +115,7 @@ public class RewardsFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<Reward>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<RewardModel>> call, Throwable t) {
                 Log.e("failure",t.getLocalizedMessage());
             }
         });
@@ -121,12 +123,7 @@ public class RewardsFragment extends Fragment {
         return rootView;
     }
 
-    ViewListener viewListener = new ViewListener() {
-        @Override
-        public View setViewForPosition(int position) {
-            return viewsList.get(position);
-        }
-    };
+    ViewListener viewListener = position -> viewsList.get(position);
 
     public void addListenerOnButton() {
 
